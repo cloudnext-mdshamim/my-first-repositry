@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h2 class="textual">Registeration User</h2>
+      <form #Registerform="ngForm" (ngSubmit)="registerUser(Registerform.value)" class="mt-3">
+        <small>{{msg}}</small>
+        <div class="form-group">
+          <label for="userName">Enter User Name:</label>
+          <input type="username" name="userName" placeholder="Enter Name" class="form-control" 
+          [(ngModel)]="user.userName" required #username="ngModel" [class.is-invalid]="username.invalid && username.touched">
+          <small class="text-danger" [class.d-none]="username.valid || username.untouched">User Name Is Required Field</small>
+        </div>
+        <div class="form-group">
+          <label for="userName">Enter User Id:</label>
+          <input type="email" name="emailId" placeholder="Email Address" class="form-control" 
+          [(ngModel)]="user.emailId" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+        <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id Is Required Field</small> -->
+        <div *ngIf="email.errors && (email.invalid && email.touched)">
+          <small class="text-danger" *ngIf="email.errors.required">Email Id Is Required Field</small>
+          <small class="text-danger" *ngIf="email.errors.pattern">Enter The valid Email Id</small>
+        </div>  
+      </div>
+        <div class="form-group">
+          <label for="password">Enter Password:</label>
+          <input type="password" name="password" placeholder="Enter password" class="form-control" 
+          [(ngModel)]="user.password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+          <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password Id Is Required Field</small>
+        </div>
+        <div class="form-group">
+          <label for="cpassword">Enter Con-Password:</label>
+          <input type="password" name="cpassword" placeholder="Enter cpassword" class="form-control" 
+          [(ngModel)]="user.cpassword" required #cpassword="ngModel" [class.is-invalid]="cpassword.invalid && cpassword.touched">
+          <small class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">Password & Con-Password Must Be Same</small>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button> &nbsp;
+        <button type="button" class="btn btn-info" [routerLink]="['/userlist']">View User List</button>
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+

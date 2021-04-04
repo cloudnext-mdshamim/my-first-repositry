@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Model List</h2>           
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>MODELNAME</th>
+        <th>MODELDESC</th>
+        <th>LEARNMORELINK</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mod of model">
+         <th>{{mod.id}}</th>
+          <th>{{mod.modelName}}</th>
+          <th>{{mod.modelDesc}}</th>
+          <th>{{mod.learnMoreLink}}</th>
+          <td>
+              <button type="button" class="btn btn-primary" routerLinkActive="active" (click)="gototEditModel(mod.id)">Edit</button>&nbsp;
+              <button type="button" class="btn btn-info" (click)="gotoViewModel(mod.id)">View</button>&nbsp;
+              <button type="button" class="btn btn-danger" (click)="gotoDeleteModel(mod.id)">Delete</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-success"  [routerLink]="['/addModel']">Add New Model</button>
+</div>

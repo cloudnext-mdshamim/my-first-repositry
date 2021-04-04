@@ -1,0 +1,36 @@
+<nav class="navbar">
+    <input type="text" class="form-control" name="portfolio_name" [(ngModel)]="portfolio_name" (ngModelChange)="Search()"
+    placeholder="Enter PORTFOLIO_NAME Name To Search">
+  </nav>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>PORTFOLIO_NAME</th>
+        <th>SECTOR</th>
+        <th>BUSINESS_RISK_PROFILE</th>
+        <th>ANCHOR</th>
+        <th>SACP</th>
+        <th>ILLUSTRATIVE_CREDIT_RATING</th>
+        <th>LAST_UPDATED_DATE</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of insurancedata">
+        <td>{{data.portfolio_name}}</td>
+        <td>{{data.sector}}</td>
+        <td>{{data.Business_risk_profile}}</td>
+        <td>{{data.anchor}}</td>
+        <td>{{data.SACP}}</td>
+        <td>{{data.illustrative_credit_rating}}</td>
+        <td>{{data.last_updated_date}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="gotoEditInsurance(data.id)">Edit</button>&nbsp;
+          <button type="button" class="btn btn-info" (click)="gotoViewInsurance(data.id)">View</button>&nbsp;
+          <button type="button" class="btn btn-danger" (click)="gotoDeleteInsurance(data.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-success" [routerLink]="['/addinsurancelist']">Add New Insurance</button>
+  

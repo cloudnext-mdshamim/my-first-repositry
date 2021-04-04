@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row mt-3">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <form #AddInsurance="ngForm" (ngSubmit)="addinsurancetodb(AddInsurance.value)">
+            <h2 class="textual">Add Insurance</h2>
+            <div class="form-group">
+              <label for="portfolio_name">PORTFOLIO_NAME</label>
+            <input type="portfolio_name" name="portfolio_name" placeholder="Enter PORTFOLIO_NAME" class="form-control" 
+            [(ngModel)]="insurancedata.portfolio_name">
+          </div>
+          <div class="form-group">
+              <label for="sector">SECTOR</label>
+            <input type="sector" name="sector" placeholder="Enter SECTOR" class="form-control" 
+            [(ngModel)]="insurancedata.sector">
+          </div>
+          <div class="form-group">
+              <label for="Business_risk_profile">BUSINESS_RISK_PROFILE</label>
+            <input type="Business_risk_profile" name="Business_risk_profile" placeholder="Enter BUSINESS_RISK_PROFILE" class="form-control" 
+            [(ngModel)]="insurancedata.Business_risk_profile">
+          </div>
+          <div class="form-group">
+              <label for="financial_risk_profile">FINANCIAL_RISK_PROFILE</label>
+            <input type="financial_risk_profile" name="financial_risk_profile" placeholder="Enter FINANCIAL_RISK_PROFILE" class="form-control" 
+            [(ngModel)]="insurancedata.financial_risk_profile">
+          </div>
+          <div class="form-group">
+              <label for="anchor">ANCHOR</label>
+            <input type="anchor" name="anchor" placeholder="Enter ANCHOR" class="form-control" 
+            [(ngModel)]="insurancedata.anchor">
+          </div>
+          <div class="form-group">
+              <label for="SACP">SACP</label>
+            <input type="SACP" name="SACP" placeholder="Enter SACP" class="form-control" 
+            [(ngModel)]="insurancedata.SACP">
+          </div>
+          <div class="form-group">
+              <label for="illustrative_credit_rating">ILLUSTRATIVE_CREDIT_RATING</label>
+            <input type="illustrative_credit_rating" name="illustrative_credit_rating" placeholder="Enter ILLUSTRATIVE_CREDIT_RATING" class="form-control" 
+            [(ngModel)]="insurancedata.illustrative_credit_rating">
+          </div>
+          <div class="form-group">
+              <label for="last_updated_date">LAST_UPDATED_DATE</label>
+            <input type="last_updated_date" name="last_updated_date" placeholder="Enter LAST_UPDATED_DATE" class="form-control" 
+            [(ngModel)]="insurancedata.last_updated_date">
+          </div>
+          <button class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>

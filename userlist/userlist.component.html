@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <input type="text" class="form-control" name="userName" [(ngModel)]="userName" (ngModelChange)="Search()"
+  placeholder="Enter User Name To Search">
+</nav>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User Name</th>
+      <th>Email Address</th>
+      <th>Password</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.userName}}</td>
+      <td>{{user.emailId}}</td>
+      <td>{{user.password}}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="gotoEditUser(user.id)">Edit</button>&nbsp;
+        <button type="button" class="btn btn-info" (click)="gotoViewUser(user.id)">View</button>&nbsp;
+        <button type="button" class="btn btn-danger" (click)="gotoDeleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" [routerLink]="['/registration']">Add New User</button>
